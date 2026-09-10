@@ -1,1 +1,0 @@
-console.log("Hello world, welcome to JSand playwright learnings");
