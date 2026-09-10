@@ -1,29 +1,36 @@
 # Test Plan – VWO Digital Experience Optimization Platform
 
-| Document | VWO Test Plan |
+| Field | Detail |
 |---|---|
 | Product Name | VWO (Visual Website Optimizer) – Digital Experience Optimization Platform |
 | Product URL | https://app.vwo.com/ |
-| PRD Reference | Product Requirements Document (PRD) – VWO, dated January 7, 2026 |
+| Source Reference | Product Requirements Document (PRD) – VWO – Digital Experience Optimization Platform |
 | Document Version | 1.0 |
-| Prepared By | QA Lead |
-| Prepared For | Manual Testers, Automation Testers, QA Managers, Product & Dev Stakeholders |
+| Prepared By | QA Team Lead |
+| Prepared For | Manual Testers, Automation Testers (JIRA test case import), QA Manager, Product and Development Stakeholders |
 | Date | September 10, 2026 |
 
 ---
 
 ## 1. Objective
 
-The objective of this test plan is to validate that the VWO platform meets its business goals — improving conversion rates, enabling hypothesis-driven experimentation, reducing engineering dependency for optimization, and providing unified insights — by delivering a secure, reliable, performant and compliant SaaS product.
+The objective of this test plan is to verify that the VWO platform delivers the functionality defined in the PRD and meets the business objectives it was built for.
 
-Specifically, testing will confirm that:
+Testing will confirm that:
 
-- All functional requirements (FR1–FR9) behave as defined in the PRD.
-- All non-functional requirements (Performance, Security, Scalability, Data Privacy, Reliability) are met.
-- Experimentation, Behavioral Insights, Personalization, Program & Workflow Management and Integration modules work correctly both individually and end-to-end.
-- The user interface behaves correctly for **valid, invalid, boundary and edge-case** inputs.
-- Experiment lifecycle, audience targeting rules, SmartStats computation and real-time content delivery produce accurate results.
-- Defects are identified, reported, tracked and closed within the agreed severity and priority SLAs before release.
+- Experiments can be defined with multiple variations and executed as A/B, Split URL and Multivariate tests (FR1).
+- SmartStats provides Bayesian analysis for test results (FR2).
+- Experiment setup is supported through both WYSIWYG and developer-level editing (FR3).
+- User interactions are captured for insights through heatmaps and session recordings (FR4).
+- Audience segmentation based on behaviors is available (FR5).
+- Up-to-date experiment analytics are delivered through real-time reporting and dashboards (FR6).
+- Tailored experiences are delivered to segments (FR7).
+- Data is synced with external platforms (FR8).
+- Planning and team task tools are available (FR9).
+- Non-functional requirements for performance, security, scalability, data privacy and reliability are met.
+- The user flows defined in the PRD (setting up an A/B test, analyzing behavioral data) work end to end.
+- Results are statistically validated and actionable reports are generated.
+- Both valid and invalid inputs are handled with correct system behaviour and clear messages across the user interface.
 
 ---
 
@@ -33,53 +40,61 @@ Specifically, testing will confirm that:
 
 | Area | Description |
 |---|---|
-| Experimentation & Testing | Create, configure, launch, pause, resume, conclude and archive A/B, Split URL and Multivariate tests (FR1) |
-| SmartStats Engine | Validate Bayesian analysis, statistical significance, winner declaration and result accuracy (FR2) |
-| Visual & Code Editor | WYSIWYG element editing, change application, preview and developer-level code edits (FR3) |
-| Behavioral Insights | Heatmaps (click, scroll, focus), session recordings, on-page surveys and funnel analytics (FR4) |
-| Audience Targeting | Segment creation using behavior, attribute, geography and demographic rules (FR5) |
-| Reporting & Dashboards | Real-time metrics, goal conversions, filters, date ranges and report export (FR6) |
-| Personalization | Segment-based real-time content delivery and campaign engagement tracking (FR7) |
-| Integrations | Data sync accuracy with Shopify, Salesforce, Segment, Snowflake, WordPress, Drupal, Google Analytics and Mixpanel (FR8) |
-| Collaboration & Workflow | Kanban backlog, card movement across states and multi-user collaboration (FR9) |
-| Login & Authentication | Valid, invalid, blank, locked-out and 2FA login scenarios on https://app.vwo.com/#/login |
-| Non-Functional | Performance (≤2s editing workflows), Security (2FA, RBAC, activity logs), Scalability, GDPR/CCPA Data Privacy, Reliability (99.9% uptime SLA) |
-| Compatibility | Chrome, Firefox, Edge, Safari across Windows 11, macOS, Android and iOS |
-| Regression | Core Testing, Insights, Personalization and Integration flows after each release |
+| Experimentation & Testing | A/B Testing, Split URL Testing and Multivariate Testing; experiments with multiple variations; custom goals and metric configurations aligned with business KPIs; version previews; scheduling; reporting (FR1) |
+| SmartStats Engine | Bayesian analysis for test results; statistically validated results (FR2) |
+| Visual & Code Editor | WYSIWYG experiment setup and developer-level experiment setup (FR3) |
+| Behavioral Insights | Heatmaps (click, scroll, focus), session recordings, on-page surveys and feedback, funnel analytics (FR4) |
+| Audience Targeting | Segmentation based on behaviors and attributes (FR5) |
+| Real-time Reporting & Dashboards | Up-to-date experiment analytics (FR6) |
+| Personalization | Segmentation by geography, behavior and demographics; real-time delivery of customized content to segments (FR7) |
+| Integration Connectors | Data sync with Shopify, Salesforce, Segment, Snowflake, WordPress, Drupal, CDPs, analytics systems, and analytics tools including Google Analytics and Mixpanel (FR8) |
+| Collaboration & Workflow Management | Central planning interface, collaboration tools for distributed teams, Kanban style workflows for experiment backlogs (FR9) |
+| User Flows | End-to-end flow for setting up an A/B test; end-to-end flow for analyzing behavioral data |
+| Non-Functional | Performance (editing workflows within 2 seconds), Security (2FA, role-based access control, activity logs), Scalability (high visitor volumes without performance loss), Data Privacy (GDPR, CCPA and regional data policies), Reliability (99.9% uptime SLA for enterprise customers) |
+| QA Coverage | Cross-device QA and cross-browser QA |
+| Regression | Core experimentation, insights, personalization, workflow and integration behaviour after each release |
 
 ### 2.2 Out of Scope
 
 | Area | Reason |
 |---|---|
-| AI-driven suggestion engine | Listed as a future enhancement in the PRD |
-| Native mobile SDK app experimentation | Listed as a future enhancement in the PRD |
-| Predictive analytics & ROI forecasting | Listed as a future enhancement in the PRD |
-| Internal cloud infrastructure administration | Owned by the DevOps/Cloud team |
-| Internal logic of third-party platforms | Only VWO's integration endpoints are validated |
-| Internal database schema and migration scripts | Managed by the Engineering team |
-| Advanced penetration testing | Covered under a separate security audit engagement |
+| AI-driven suggestion engine for test ideas and personalization patterns | Identified in the PRD as a future enhancement |
+| Native mobile SDK enhancements for app experimentation | Identified in the PRD as a future enhancement |
+| Advanced predictive analytics and ROI forecasting | Identified in the PRD as a future enhancement |
+| Internal logic of third-party platforms | Only the VWO integration points are tested |
+| Pricing tier entitlement and billing computation | The PRD describes pricing and licensing structure only; no billing behaviour is defined |
+| Platform infrastructure and cloud administration | Not described in the PRD |
 
 ---
 
 ## 3. Inclusions
 
 ### 3.1 Testing / Experimentation Module
-Create, configure, launch, pause, resume and conclude A/B, Split URL and Multivariate tests. Validate traffic allocation, goal/metric configuration, audience targeting rules, version previews, scheduling and SmartStats result computation.
+Create, configure, launch, monitor and conclude A/B, Split URL and Multivariate tests. Validate multiple variations, audience targeting based on behaviors and attributes, custom goals and metric configurations, version previews, scheduling and reporting.
 
-### 3.2 Behavioral Insights Module
-Heatmap generation (click, scroll, focus) for a selected date range, session recording capture and playback, on-page survey delivery and response capture, and funnel drop-off analytics.
+### 3.2 SmartStats Module
+Validate the Bayesian analysis of test results, including statistical validation of results and the concluding of a winner.
 
-### 3.3 Personalization Module
-Segment creation by geography, behavior and demographics, and real-time delivery of targeted content to matching segments, with engagement tracking.
+### 3.3 Visual & Code Editor Module
+Validate WYSIWYG experiment setup and developer-level experiment setup, and their use in configuring test variations.
 
-### 3.4 Program & Workflow Management
-Kanban backlog creation, card creation and movement across states, and multi-user collaboration on the central planning board.
+### 3.4 Behavioral Insights Module
+Validate heatmap generation for click, scroll and focus; session recording capture; on-page survey and feedback capture; and funnel analytics to identify drop-off points.
 
-### 3.5 Integrations
-Data sync accuracy with Shopify, Salesforce, Segment, Snowflake, WordPress, Drupal, Google Analytics and Mixpanel, including connector authentication, field mapping and failure handling.
+### 3.5 Personalization Module
+Validate segment creation by geography, behavior and demographics, and the real-time delivery of customized content to those segments.
 
-### 3.6 Login & Authentication
-Login with valid, invalid, blank and malformed credentials, 2FA verification, password reset, session timeout and account lockout behaviour.
+### 3.6 Reporting & Dashboards Module
+Validate that up-to-date experiment analytics are delivered and that results are presented as actionable reports.
+
+### 3.7 Program & Workflow Management Module
+Validate the central planning interface, collaboration tools for distributed teams, and Kanban style workflows for experiment backlogs.
+
+### 3.8 Integrations Module
+Validate the connection and data sync with Shopify, Salesforce, Segment, Snowflake, WordPress, Drupal, CDPs, analytics systems, Google Analytics and Mixpanel.
+
+### 3.9 Non-Functional Coverage
+Validate the performance, security, scalability, data privacy and reliability requirements, and cross-device and cross-browser QA.
 
 ---
 
@@ -87,14 +102,12 @@ Login with valid, invalid, blank and malformed credentials, 2FA verification, pa
 
 | Category | Coverage |
 |---|---|
-| Operating Systems | Windows 10/11, macOS 14, Android 14, iOS 17 |
-| Browsers | Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari (latest + previous 2 versions) |
+| Operating Systems | Windows 10/11, macOS, Android, iOS |
+| Browsers | Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari |
 | Devices | Desktop, laptop, tablet, smartphone |
-| Environment URL | https://app.vwo.com/ (staging/sandbox account) |
-| Access Control | 2FA-enabled accounts with Admin, Editor and Viewer roles for RBAC testing |
+| Environment URL | https://app.vwo.com/ (staging / sandbox account) |
+| Access Control | 2FA-enabled accounts with Admin, Editor and Viewer roles for role-based access control testing |
 | Network | Wi-Fi, wired, and throttled 3G/4G profiles for performance checks |
-| Test Data | Synthetic experiments, variations, audience segments, visitor sessions and GDPR/CCPA profiles refreshed weekly |
-| Integration Sandboxes | Shopify, Salesforce, Segment, Snowflake, Google Analytics and Mixpanel sandbox accounts |
 
 ---
 
@@ -102,24 +115,23 @@ Login with valid, invalid, blank and malformed credentials, 2FA verification, pa
 
 Defects are logged in **JIRA** with the following mandatory fields:
 
-- Summary (title)
-- Module (Testing / Insights / Personalization / Program & Workflow / Integration / Login / Non-Functional)
-- Severity (Blocker / Critical / Major / Minor / Trivial)
-- Priority (P0 / P1 / P2 / P3)
-- Environment, browser and build version
-- Preconditions and numbered reproduction steps
+- Title
+- Module (Testing / SmartStats / Visual & Code Editor / Insights / Personalization / Reporting / Program & Workflow / Integration / Non-Functional)
+- Severity (Blocker / Critical / Major / Minor)
+- Priority (P0 / P1 / P2)
+- Reproduction steps
 - Expected result vs. actual result
-- Evidence (screenshots, screen recording, HAR log or API response)
+- Environment
+- Screenshots or HAR logs
 
-**Workflow:** Tester logs defect → QA Lead triages and assigns → Developer fixes → Tester retests on QA environment → Closed if pass, Reopened if fail. Severity and priority are triaged daily by the QA Lead with the development leads. Any defect exposing sensitive data or breaking authentication is flagged **Critical** regardless of functional severity.
+Severity and priority are triaged daily by the QA lead with the development leads. Defects involving exposure of sensitive data are flagged **Critical** regardless of functional severity.
 
-| Severity | Definition | Target Response |
-|---|---|---|
-| Blocker | Prevents further testing; no workaround | Immediate (≤2 hours) |
-| Critical | Major feature non-functional; no workaround | ≤4 hours |
-| Major | Feature works with significant limitation; workaround exists | ≤8 hours |
-| Minor | Cosmetic issue; feature functional | ≤24 hours |
-| Trivial | Low-impact cosmetic/UX suggestion | Next sprint |
+| Severity | Definition |
+|---|---|
+| Blocker | Prevents further testing; no workaround |
+| Critical | Major function is non-functional; no workaround |
+| Major | Function works with a significant limitation; a workaround exists |
+| Minor | Cosmetic or low-impact issue; function is fully usable |
 
 ---
 
@@ -129,41 +141,37 @@ Defects are logged in **JIRA** with the following mandatory fields:
 
 | Technique | Application Area |
 |---|---|
-| Equivalence Class Partitioning | Login credentials, experiment names, traffic split values, segment rule fields, pricing tiers |
-| Boundary Value Analysis | Traffic split at 0/100 and 50/50, date ranges, visitor counts, conversion thresholds, name length limits |
-| Decision Table Testing | Audience targeting rules, segment combinations, role permission boundaries |
-| State Transition Testing | Experiment lifecycle (Draft → Scheduled → Running → Paused → Concluded), workflow card states |
-| Use Case Testing | End-to-end flows: A/B test setup and behavioral data analysis |
-| Error Guessing | API failures, malformed payloads, network drops, concurrent edits |
-| Exploratory Testing | Visual editor behaviour, heatmap rendering, session recording playback |
+| Equivalence Class Partitioning | Experiment setup inputs, audience segment parameters, goal and metric configuration |
+| Boundary Value Analysis | Variation counts, goal and metric values, scheduling inputs, editing workflow response time against the 2-second requirement |
+| Decision Table Testing | Audience and segment rules based on behaviors and attributes |
+| State Transition Testing | Experiment progress as defined in the PRD user flow: definition, launch, monitoring and conclusion |
+| Use Case Testing | Setting up an A/B test and analyzing behavioral data |
+| Error Guessing | Invalid input handling, connector failures, concurrent activity |
+| Exploratory Testing | Heatmap rendering, session recording playback, Kanban board behaviour |
 
 ### 6.2 Execution Cycle
 
-Test cases are designed using the techniques above and executed in the sequence below:
-
 1. **Smoke testing** on each build. If smoke fails, the build is rejected and returned to development.
-2. **Functional testing** on the stable build, module by module, covering valid, invalid, boundary and edge cases.
-3. **Integration testing** for connected modules and third-party connectors.
-4. **Non-functional testing** — performance, security, scalability, data privacy and reliability.
-5. **Regression testing** after every defect fix and before release.
-6. **Defect retesting** and daily defect status reporting to development management.
+2. **Functional testing** of modules FR1–FR9, covering positive, negative, boundary and edge cases.
+3. **Non-functional testing** for performance, security, scalability, data privacy and reliability.
+4. **Cross-device and cross-browser QA** across the environment matrix.
+5. **Integration testing** for the connectors listed in FR8.
+6. **Regression testing** after each fix and before release.
+7. **Daily defect status** shared with development management.
 
 ### 6.3 Test Types
 
-| Test Type | Coverage | Approach |
-|---|---|---|
-| Smoke | Critical user flows on each build | Automated (Playwright) |
-| Functional | FR1–FR9 | Manual + Automated |
-| Integration | FR8 connectors | Manual + Postman/Newman |
-| UI/Visual | Visual Editor, dashboards, heatmaps | Manual + visual regression |
-| API | VWO APIs, SDK and connector endpoints | Postman / Newman |
-| Performance | ≤2s editing workflow SLA | k6 / JMeter |
-| Security | 2FA, RBAC, activity logs, injection/XSS | Manual + OWASP ZAP |
-| Scalability | High concurrent visitor volume | k6 / JMeter |
-| Data Privacy | GDPR/CCPA compliance and anonymization | Manual verification |
-| Reliability | 99.9% uptime SLA | Uptime monitoring |
-| Compatibility | Browser and device matrix | BrowserStack |
-| Regression | Core flows after every change | Automated suite |
+| Test Type | Coverage |
+|---|---|
+| Smoke | Critical flows on each build |
+| Functional | FR1–FR9 |
+| UI | All user-facing modules, with valid and invalid inputs |
+| Non-Functional | Performance, security, scalability, data privacy, reliability |
+| Integration | FR8 connectors and analytics tool integrations |
+| Compatibility | Cross-device QA and cross-browser QA |
+| Privacy | GDPR, CCPA and regional data policy compliance |
+| Regression | Core flows after each release |
+| Error Handling and Validation | Invalid, missing and blank inputs across all modules |
 
 ---
 
@@ -173,18 +181,18 @@ Estimated duration: **2 sprints** to test the application end-to-end.
 
 | Phase | Task | Duration | Owner |
 |---|---|---|---|
-| P1 | Test Plan creation and review | Day 1 – Day 3 | QA Lead |
-| P2 | Test scenario and test case design | Day 3 – Day 7 | QA Engineers |
-| P3 | Test case review and sign-off | Day 7 – Day 8 | QA Lead, Dev Lead, PM |
-| P4 | Test environment and test data setup | Day 5 – Day 8 | DevOps, QA |
-| P5 | Smoke testing on the stable build | Day 9 | QA Engineers |
-| P6 | Functional testing (FR1–FR5) | Day 9 – Day 15 | QA Engineers |
-| P7 | Functional testing (FR6–FR9) | Day 13 – Day 18 | QA Engineers |
-| P8 | Integration testing (FR8) | Day 15 – Day 19 | QA Engineers |
-| P9 | Non-functional testing (Performance, Security, Scalability, Privacy, Reliability) | Day 16 – Day 21 | QA / Security Engineer |
-| P10 | Compatibility testing | Day 18 – Day 22 | QA Engineers |
-| P11 | Regression testing and defect retesting | Day 20 – Day 24 | QA Engineers |
-| P12 | Test summary, UAT and sign-off | Day 24 – Day 26 | QA Lead, QA Manager, PM |
+| P1 | Test Plan creation and review | TBD | QA Team Lead |
+| P2 | Test scenario and test case design | TBD | QA Engineers |
+| P3 | Test case review and sign-off | TBD | QA Team Lead, Dev Lead, Product Manager |
+| P4 | Test environment and test data setup | TBD | DevOps, QA |
+| P5 | Smoke testing | TBD | QA Engineers |
+| P6 | Functional testing (FR1–FR5) | TBD | QA Engineers |
+| P7 | Functional testing (FR6–FR9) | TBD | QA Engineers |
+| P8 | Integration testing (FR8) | TBD | QA Engineers |
+| P9 | Non-functional testing | TBD | QA Engineers |
+| P10 | Cross-device and cross-browser QA | TBD | QA Engineers |
+| P11 | Regression testing and defect retesting | TBD | QA Engineers |
+| P12 | Test summary, UAT and sign-off | TBD | QA Team Lead, QA Manager, Product Manager |
 
 ---
 
@@ -192,169 +200,150 @@ Estimated duration: **2 sprints** to test the application end-to-end.
 
 | # | Deliverable | Owner |
 |---|---|---|
-| 1 | Test Plan document | QA Lead |
-| 2 | Test Scenario document | QA Lead |
-| 3 | Test Case Suite (Excel/Markdown, one set per module) | QA Engineers |
-| 4 | Requirement Traceability Matrix (RTM) | QA Lead |
-| 5 | Smoke Test Report | QA Engineers |
-| 6 | Functional Test Execution Report | QA Engineers |
-| 7 | Integration Test Report | QA Engineers |
-| 8 | Performance and Load Test Report | QA Engineer |
-| 9 | Security Test Report | Security Engineer |
-| 10 | Compatibility Test Report | QA Engineers |
-| 11 | Regression Test Report | QA Engineers |
-| 12 | Defect Report (JIRA export) | QA Lead |
-| 13 | Daily Status Report | QA Lead |
-| 14 | Test Summary Report | QA Lead |
-| 15 | Test Closure Report with sign-off | QA Manager |
+| 1 | Test Plan document | QA Team Lead |
+| 2 | Test Scenarios document | QA Team Lead |
+| 3 | Test Case suite (JIRA-importable) | QA Engineers |
+| 4 | Requirement coverage mapping | QA Team Lead |
+| 5 | Defect reports in JIRA | QA Engineers |
+| 6 | Daily status reports | QA Team Lead |
+| 7 | Test execution report | QA Engineers |
+| 8 | Test Summary Report | QA Team Lead |
+| 9 | Test Closure Report with sign-off | QA Manager |
 
 ---
 
-## 9. Entry and Exit Criteria
+## 9. Entry Criteria
 
 ### 9.1 Requirement Analysis
 
 | Criterion | Description |
 |---|---|
-| Entry | PRD received and baselined by the QA team |
-| Exit | Requirements reviewed, ambiguities clarified and confirmed with the Product Owner |
+| Entry | PRD received by the QA team |
+| Exit | Requirements reviewed and doubts clarified with the product owner |
 
 ### 9.2 Test Execution
 
 | Criterion | Description |
 |---|---|
-| Entry | Test cases designed, reviewed and signed off; staging environment stable and accessible; test data seeded; build deployed and smoke-tested |
-| Exit | All P0 and P1 test cases executed; 100% of P0 cases pass; 95% of P1 cases pass with documented exceptions; no open Blocker or Critical defects |
+| Entry | Test cases signed off; staging environment stable and accessible; test data available; build deployed and smoke-tested |
 
 ### 9.3 Test Closure
 
 | Criterion | Description |
 |---|---|
-| Entry | Test case execution and defect reports are complete |
-| Exit | Test Summary Report delivered; all P0 defects closed; P1/P2 defects documented with agreed workarounds; stakeholder sign-off obtained |
+| Entry | Test case and defect reports are ready |
 
-### 9.4 Suspension and Resume Criteria
+---
+
+## 10. Exit Criteria
+
+### 10.1 Test Execution
+
+| Criterion | Description |
+|---|---|
+| Exit | Test case and defect reports completed for all P0 and P1 scenarios |
+
+### 10.2 Test Closure
+
+| Criterion | Description |
+|---|---|
+| Exit | Test Summary Report delivered; all P0 defects closed; P1 and P2 defects documented with agreed workarounds; stakeholder sign-off obtained |
+
+### 10.3 Suspension and Resume
 
 | Suspension Trigger | Resume Condition |
 |---|---|
-| Blocker/Critical defect blocking 30%+ of test cases | Defect fixed and verified |
-| Test environment unavailable for more than 4 hours | Environment restored and validated |
-| Build fails smoke tests three consecutive times | New stable build passes smoke tests |
-| Security vulnerability requiring an emergency patch | Patch applied and verified |
-| Test data corruption or loss | Test data restored and validated |
+| Blocker severity defect prevents further testing | Defect fixed and verified |
+| Test environment unavailable | Environment restored and validated |
+| Build fails smoke testing | New stable build passes smoke testing |
 
 ---
 
-## 10. Test Execution
+## 11. Test Execution
 
 | Step | Activity | Responsible |
 |---|---|---|
-| 1 | Execute smoke tests on the deployed build; reject build if smoke fails | Tester |
-| 2 | Execute functional test cases module by module and record status (Pass/Fail/Blocked/Not Run) | Tester |
-| 3 | Execute integration, non-functional and compatibility test cases | Tester |
+| 1 | Execute smoke tests on the deployed build and reject the build if smoke fails | Tester |
+| 2 | Execute functional test cases module by module and record status (Pass / Fail / Blocked / Not Run) | Tester |
+| 3 | Execute non-functional, integration and compatibility test cases | Tester |
 | 4 | Log defects in JIRA with complete evidence and retest after fixes | Tester |
-| 5 | Update test execution status and defect status in the test management tool daily | Tester |
-| 6 | Hold daily defect triage with development leads | QA Lead |
-| 7 | Publish the daily status report covering progress, defects, blockers and risks | QA Lead |
-| 8 | Execute the full regression suite before release | Tester |
-| 9 | Re-execute failed and blocked test cases after fixes until pass or documented exception | Tester |
+| 5 | Update test execution and defect status daily | Tester |
+| 6 | Hold daily defect triage with development leads | QA Team Lead |
+| 7 | Publish the daily status report covering progress, defects, blockers and risks | QA Team Lead |
+| 8 | Execute the regression suite before release | Tester |
+| 9 | Re-execute failed and blocked cases until pass or documented exception | Tester |
 
 ---
 
-## 11. Test Closure
+## 12. Test Closure
 
-Test closure activities are initiated once all exit criteria in Section 9 are met. The QA Lead will:
+Test closure begins when the exit criteria in Section 10 are met. The QA Team Lead will:
 
-1. Verify that all P0 and P1 defects are resolved or have documented workarounds.
-2. Execute the final regression suite and confirm the agreed pass rate.
-3. Compile the **Test Summary Report** containing: planned vs. executed vs. passed vs. failed test cases, defect metrics by severity and priority, requirement coverage, automation coverage, performance benchmark results and open risks.
-4. Archive test cases, execution logs, defect reports and test data.
-5. Record lessons learned and recommendations for future releases.
-6. Obtain formal sign-off from the QA Manager, Product Manager and Development Lead.
+1. Confirm all P0 defects are closed and P1 and P2 defects are documented with agreed workarounds.
+2. Execute the final regression suite.
+3. Compile the Test Summary Report covering planned vs. executed vs. passed vs. failed cases, defect metrics, and requirement coverage.
+4. Archive test cases, execution logs and defect reports.
+5. Obtain stakeholder sign-off.
 
 ---
 
-## 12. Tools
+## 13. Tools
 
 | Tool Category | Tool | Purpose |
 |---|---|---|
-| Test & Defect Management | JIRA (+ Zephyr / TestRail) | Test case management, execution tracking, defect tracking |
-| Collaboration & Documentation | Confluence, Slack / Email | Test documentation, daily status communication |
-| UI Automation | Playwright | Functional and regression automation |
-| API Testing | Postman / Newman | API and connector endpoint testing |
-| Performance & Load | k6 / JMeter | Performance, load and scalability testing |
-| Security | OWASP ZAP / Burp Suite | Security scanning and vulnerability assessment |
-| Cross-Browser / Device | BrowserStack | Compatibility testing across the browser and device matrix |
-| Visual Regression | Percy / Playwright Screenshots | UI visual regression checks |
-| Monitoring | Datadog / New Relic | Uptime and reliability monitoring |
-| Evidence Capture | Snipping Tool / screen recorder | Defect screenshots and recordings |
-| Version Control | Git / GitHub | Test artifact version management |
+| Defect & Test Case Tracking | JIRA | Defect tracking and test case tracking, including test case import |
+| Test Case Management | TestRail / Zephyr / Excel | Test case management and execution tracking |
+| Evidence Capture | Snipping / screen-recording tool | Defect screenshots and recordings |
+| Performance & Load | k6 / JMeter | Performance and load testing |
 
 ---
 
-## 13. Risks, Assumptions and Dependencies
+## 14. Risks, Assumptions, Dependencies and Mitigations
 
-### 13.1 Risks and Mitigation Strategies
+### 14.1 Risks and Mitigations
 
-| ID | Risk | Probability | Impact | Mitigation Strategy |
-|---|---|---|---|---|
-| R01 | Technical complexity of SmartStats and integration connectors | High | High | Rely on vendor SDKs and documentation; validate against known statistical sample sets and pre-built templates |
-| R02 | Data accuracy challenges across tools | Medium | High | Cross-tool validation using SmartStats plus Google Analytics and Mixpanel comparison |
-| R03 | Low user adoption of new features | Medium | Medium | Guided onboarding, in-app support and analyst assistance |
-| R04 | Third-party sandbox/API limits block integration testing | High | High | Maintain sandbox accounts and use mocked API responses as a fallback |
-| R05 | The 2-second SLA is hard to validate without production-scale traffic | Medium | High | Load-test staging with k6/JMeter simulating peak visitor volume |
-| R06 | Visual Editor breakage across browser versions | Medium | High | Test the latest plus previous two versions per browser; provide Code Editor fallback |
-| R07 | Data privacy compliance gaps (GDPR/CCPA) | Low | Critical | Privacy review with the legal team and anonymization verification |
-| R08 | RBAC misconfiguration leading to unauthorized access | Low | Critical | Automated RBAC boundary tests and permission audits |
-| R09 | Test environment instability or configuration drift | Medium | High | Provision environments from infrastructure-as-code and verify weekly |
-| R10 | Resource constraints during peak testing | Medium | Medium | Prioritize test cases by risk and run tests in parallel |
+| ID | Risk | Mitigation Strategy |
+|---|---|---|
+| R01 | Technical complexity of the platform | Provide robust SDKs and documentation, and pre-built templates |
+| R02 | Data accuracy challenges | Use SmartStats and cross-tool validation integrations |
+| R03 | User adoption | Onboard with guided tours, in-app support and analyst assistance |
 
-### 13.2 Assumptions
+### 14.2 Assumptions
 
 | ID | Assumption |
 |---|---|
-| A01 | The PRD is final and no major requirement changes will occur during the test cycle |
-| A02 | The staging environment is available with at least 95% uptime during the test window |
-| A03 | All team members have the required access to tools, environments and repositories |
-| A04 | Test data can be refreshed without impacting other teams |
-| A05 | Integration sandboxes remain available and stable |
-| A06 | Defect fixes are delivered within the agreed severity SLAs |
-| A07 | BrowserStack provides an accurate representation of real browsers and devices |
+| A01 | The PRD is the baselined requirement source for this test cycle |
+| A02 | The staging environment is available and accessible during the test window |
+| A03 | Test accounts with the required roles are provisioned for role-based access control testing |
+| A04 | Integration sandbox or test accounts are available for the connectors listed in FR8 |
+| A05 | Test cases will be imported into JIRA for execution and defect linkage |
 
-### 13.3 Dependencies
+### 14.3 Dependencies
 
-| ID | Dependency | Impact if Unavailable | Owner |
-|---|---|---|---|
-| D01 | Stable staging environment with a production-like configuration | Blocks all functional testing | DevOps |
-| D02 | Test data seeded with realistic experiments, variations and segments | Blocks functional and Insights testing | QA / DevOps |
-| D03 | Sandbox accounts for all integration platforms | Blocks FR8 integration testing | QA Lead / Product |
-| D04 | BrowserStack access for the compatibility matrix | Blocks cross-browser and cross-device testing | QA Manager |
-| D05 | Load testing tool availability (k6 / JMeter) | Blocks performance and scalability testing | QA Manager |
-| D06 | JIRA project configured with the test workflow | Blocks defect and test case tracking | QA Lead |
-| D07 | PRD approval and baseline sign-off | Scope remains unclear | Product Manager |
-| D08 | API/SDK documentation for connector endpoints | Blocks API and integration testing | Dev Lead |
+| ID | Dependency | Impact if Unavailable |
+|---|---|---|
+| D01 | Stable staging environment at https://app.vwo.com/ | Blocks all functional testing |
+| D02 | Test accounts with Admin, Editor and Viewer roles | Blocks security and permission testing |
+| D03 | Access to integration platforms listed in FR8 | Blocks integration testing |
+| D04 | JIRA project configured for test cases and defects | Blocks execution tracking and defect reporting |
+| D05 | Performance and load testing tool availability | Blocks performance and scalability testing |
 
 ---
 
-## 14. Approvals
+## 15. Requirement Coverage Mapping
 
-The following documents require stakeholder sign-off before proceeding to the next phase: **Test Plan, Test Scenarios, Test Cases and Test Summary Report**.
-
-| Role | Name | Signature | Date |
+| Requirement | Priority | Module | Test Scenarios |
 |---|---|---|---|
-| QA Manager | | | |
-| QA Lead | | | |
-| Product Manager | | | |
-| Development Lead | | | |
-| DevOps Lead | | | |
-
-| Sign-off Criterion | Acceptance |
-|---|---|
-| All P0 test cases executed with 100% pass rate | ☐ Yes / ☐ No |
-| All P1 test cases executed with 95%+ pass rate (documented exceptions) | ☐ Yes / ☐ No |
-| No open Blocker or Critical severity defects | ☐ Yes / ☐ No |
-| Performance: editing workflows respond within 2 seconds | ☐ Yes / ☐ No |
-| Security: no high-risk findings | ☐ Yes / ☐ No |
-| Requirement coverage: 100% of FR1–FR9 and NFRs | ☐ Yes / ☐ No |
-| Regression suite executed with 95%+ pass rate | ☐ Yes / ☐ No |
-| Test Summary Report reviewed and accepted | ☐ Yes / ☐ No |
+| FR1 – A/B, Split & Multivariate Testing | Must | Experimentation & Testing | TS-01 |
+| FR2 – SmartStats Engine | Must | SmartStats | TS-02 |
+| FR3 – Visual & Code Editor | Must | Visual & Code Editor | TS-03 |
+| FR4 – Heatmaps & Session Recordings | Must | Behavioral Insights | TS-04 |
+| FR5 – Audience Targeting | High | Audience Targeting | TS-05 |
+| FR6 – Real-time Reporting & Dashboards | Must | Reporting & Dashboards | TS-06 |
+| FR7 – Personalization Engine | High | Personalization | TS-07 |
+| FR8 – Integration Connectors | High | Integrations | TS-08 |
+| FR9 – Collaboration & Workflow Management | Medium | Program & Workflow Management | TS-09 |
+| NFR – Performance, Security, Scalability, Data Privacy, Reliability | Must | Non-Functional | TS-10 |
+| Cross-device QA and Cross-browser QA | Must | Compatibility | TS-11 |
+| User Flow 5.1 – Setting up an A/B Test | Must | Experimentation & Testing | TS-01 |
+| User Flow 5.2 – Analyzing Behavioral Data | Must | Behavioral Insights | TS-04 |

@@ -1,0 +1,312 @@
+# R — ROLE
+
+You are a Senior Software Quality Engineer with 5 years of experience working for an MNC in manual, functional, API, and UI testing. You have very good experience in creating Test Plans and Test Cases for applications.
+
+You need to create Test Cases based on the attached PRD and ensure they follow the same format as the attached templates.
+
+---
+
+# I — INSTRUCTIONS
+
+Create a detailed and professional **Test Plan** based on the provided requirements.
+
+Analyze the attached documents completely before generating the output:
+
+1. **PRD:** VWO – Digital Experience Optimization Platform
+2. **Test Plan reference/template:** Enterprise Test Plan reference / VWO Test Plan reference
+3. **Test Case template:** Use the Test Case structure explicitly provided in this prompt.
+
+Analyze the PRD to understand and cover the information actually provided, including:
+
+* Product overview
+* Business objectives
+* Stakeholders
+* Target users
+* Core features and capabilities
+* User flows
+* Functional requirements
+* Non-functional requirements
+* Success metrics/KPIs
+* Pricing and licensing
+* Risks and mitigations
+* Future enhancements
+
+Create complete test cases covering the requirements in the PRD.
+
+### Test Coverage
+
+The test cases must cover:
+
+* Positive test cases
+* Negative test cases
+* Boundary test cases
+* Edge cases
+* Functional testing
+* Non-functional testing
+* UI testing
+* API testing where applicable to the provided requirements
+* Security testing where applicable
+* Performance testing where applicable
+* Compatibility testing where applicable
+* Integration testing where applicable
+* Privacy testing where applicable
+* Regression testing where applicable
+* Error handling and validation
+
+For UI functionality, thoroughly cover both valid and invalid scenarios based only on the requirements provided.
+
+### Mandatory Requirements
+
+* `[Critical]` Clearly define the testing objectives.
+* `[Critical]` Identify the scope of testing.
+* `[Mandatory]` Cover both functional and non-functional testing.
+* `[Mandatory]` Include risks, assumptions, dependencies, and mitigation strategies.
+* Use the information from the PRD and the provided reference documents.
+* Do not add unsupported product functionality.
+* Do not invent requirements, workflows, data, UI elements, or expected behavior.
+* If information is not available in the provided sources, do not assume it.
+* Do not modify the actual product information or requirements.
+
+### Important Output Restriction
+
+I don't want extra data.
+
+Generate only these two items:
+
+1. **Test Plan**
+2. **Test Cases**
+
+Do not add extra comments, explanations, recommendations, or unrelated content to the final generated deliverables.
+
+---
+
+# C — CONTEXT
+
+## Product
+
+**VWO – Digital Experience Optimization Platform**
+
+**Product URL:** https://app.vwo.com/
+
+VWO is an experimentation and conversion rate optimization (CRO) platform. It enables businesses to analyze user behavior on their websites and mobile apps, run A/B and multivariate tests, and deploy personalized content to increase engagement, signups, and sales.
+
+## Business Objectives
+
+The PRD identifies the following business objectives:
+
+* Improve conversion rates.
+* Test hypotheses.
+* Reduce engineering dependency.
+* Provide unified insights.
+
+## Target Users
+
+* CRO Specialists
+* Product Managers
+* UX Designers
+* Digital Marketers
+* Analysts
+
+Secondary users include:
+
+* Engineering teams
+* Business executives
+
+## Core Features
+
+Cover the features actually defined in the PRD, including:
+
+* A/B Testing
+* Split URL Testing
+* Multivariate Testing
+* Audience Targeting
+* Custom Goals/Metrics
+* SmartStats
+* Previewing
+* Cross-device QA
+* Cross-browser QA
+* Scheduling
+* Reporting
+* Google Analytics integration
+* Mixpanel integration
+* Heatmaps
+* Session Recordings
+* Surveys
+* Funnels
+* Personalization
+* VWO Plan/Program Management
+* Kanban
+* Integrations such as Shopify, Salesforce, Segment, Snowflake, WordPress, Drupal, CDPs, and analytics platforms
+
+## Functional Requirements
+
+Use the following requirements from the PRD:
+
+* **FR1:** A/B, Split & Multivariate Testing — Must
+* **FR2:** SmartStats Engine — Must, Bayesian analysis
+* **FR3:** Visual & Code Editor — Must, WYSIWYG/developer setup
+* **FR4:** Heatmaps & Session Recordings — Must, capture interactions
+* **FR5:** Audience Targeting — High, segmentation based on behaviors
+* **FR6:** Real-time Reporting & Dashboards — Must
+* **FR7:** Personalization Engine — High
+* **FR8:** Integration Connectors — High
+* **FR9:** Collaboration & Workflow Management — Medium
+
+## Non-Functional Requirements
+
+Cover the following PRD requirements:
+
+* Performance: editing workflows under 2 seconds
+* Security: 2FA, RBAC, activity logs
+* Scalability: high visitor volumes
+* Privacy: GDPR, CCPA, and regional privacy requirements
+* Reliability: 99.9% uptime SLA
+
+## KPIs
+
+Use the PRD-defined KPIs:
+
+* Conversion rate
+* Experiment velocity
+* Reduced engineering time
+* Personalized campaign engagement
+* Customer satisfaction/NPS
+
+## Pricing and Licensing
+
+The PRD states that pricing/licensing varies based on:
+
+* Feature set
+* Monthly tested users
+* Growth, Pro, and Enterprise tiers
+* Free tiers for small segments
+* Enterprise-scale usage
+
+## Risks
+
+The PRD identifies:
+
+* Technical complexity
+* Data accuracy
+* User adoption
+
+Use the mitigations defined in the source material and do not invent additional mitigations.
+
+## Future Enhancements
+
+The PRD identifies:
+
+* AI suggestion engine
+* Native mobile SDK enhancements
+* Predictive analytics/ROI
+
+Do not treat these as currently implemented requirements unless the source explicitly states that they are in scope for current testing.
+
+---
+
+# E — EXAMPLE
+
+## Test Plan
+
+The Test Plan should follow the provided Test Plan reference/template and contain:
+
+* Objective
+* Scope
+* Inclusions
+* Test Environments
+* Defect Reporting Procedure
+* Test Strategy
+* Test Schedule
+* Test Deliverables
+* Entry Criteria
+* Exit Criteria
+* Test Execution
+* Test Closure
+* Tools
+
+Include other sections only when they are part of the provided Test Plan reference/template or are required by the provided requirements.
+
+## Test Case Structure
+
+The Test Case table must use:
+
+| Scenario TID | Test Case ID | Test Case Description | Test Steps | Status | Comments |
+
+Example:
+
+| TS-01 | TC-01.1 | Verify that with a valid experiment name a new A/B test is created successfully | 1. Navigate to Testing module 2. Click "Create New Test" 3. Enter valid name 4. Click Save | | Pass/Fail |
+
+Test scenarios should use IDs such as:
+
+* TS-01
+* TS-02
+* TS-03
+
+Test cases should use IDs such as:
+
+* TC-01.1
+* TC-01.2
+* TC-02.1
+
+Cover positive, negative, boundary, and edge cases according to the PRD.
+
+---
+
+# P — PARAMETERS
+
+Write the output for a **QA Team Lead** handing the deliverables to manual and automation testers who will import the test cases directly into **JIRA**.
+
+Follow these rules:
+
+1. Preserve the actual information provided in the PRD and reference documents.
+2. Do not assume missing requirements.
+3. Do not add information that is not supported by the provided sources.
+4. Do not modify the actual product information.
+5. Do not introduce new features or requirements.
+6. Keep terminology consistent with the PRD and Test Plan reference.
+7. Keep the Test Plan and Test Cases consistent with each other.
+8. Test cases must be detailed enough for manual and automation testers.
+9. Use clear and unambiguous test steps.
+10. Ensure test coverage maps back to the requirements provided.
+11. Use the specified Test Case table structure.
+12. Do not add extra content outside the requested Test Plan and Test Cases.
+
+---
+
+# O — OUTPUT
+
+Generate only:
+
+## 1. Test Plan
+
+Create the Test Plan using the provided Test Plan reference/template and the actual PRD information.
+
+## 2. Test Cases
+
+Create the complete Test Case suite using the specified structure:
+
+**Scenario TID | Test Case ID | Test Case Description | Test Steps | Status | Comments**
+
+Ensure the test cases cover the applicable requirements and include positive, negative, boundary, and edge cases.
+
+---
+
+# T — TONE
+
+Maintain a professional, enterprise-level, and easy-to-understand tone suitable for both technical and non-technical stakeholders.
+
+## Execution Process
+
+Before creating the final deliverables, follow this process:
+
+1. Analyze the PRD completely.
+2. Analyze the provided Test Plan reference/template completely.
+3. Analyze the provided Test Case structure completely.
+4. Identify the requirements and testing scope supported by the documents.
+5. Create a detailed plan for the Test Plan and Test Cases.
+6. Show me exactly what you are going to create.
+7. Ask for my approval before generating the final deliverables.
+8. After approval, create the Test Plan step by step.
+9. Then create the Test Cases step by step.
+10. Validate that the final Test Plan and Test Cases remain consistent with the PRD and provided templates.
+11. Do not add or assume any information that was not provided without asking me first.
