@@ -1,0 +1,452 @@
+﻿"Issue Type","Summary","Test Steps","Labels","Scenario TID","Test Case ID","Status"
+"Test","Verify that a user can log in successfully with valid email and valid password","1. Navigate to https://app.vwo.com/#/login
+2. Enter a registered email address
+3. Enter the correct password
+4. Click Login","positive","TS-01","TC-01.1",""
+"Test","Verify that login fails with a valid email and an incorrect password","1. Navigate to the login page
+2. Enter a registered email address
+3. Enter an incorrect password
+4. Click Login","negative","TS-01","TC-01.2",""
+"Test","Verify that login fails with an unregistered email address","1. Navigate to the login page
+2. Enter an email that is not registered
+3. Enter any password
+4. Click Login","negative","TS-01","TC-01.3",""
+"Test","Verify that validation messages appear when both email and password fields are left blank","1. Navigate to the login page
+2. Leave email and password blank
+3. Click Login","negative","TS-01","TC-01.4",""
+"Test","Verify that an invalid email format is rejected with a field-level validation message","1. Navigate to the login page
+2. Enter an email without the @ symbol (for example userdomain.com)
+3. Enter a valid password
+4. Click Login","negative","TS-01","TC-01.5",""
+"Test","Verify that the password field masks the entered characters","1. Navigate to the login page
+2. Type a password in the password field
+3. Observe the displayed characters","positive","TS-01","TC-01.6",""
+"Test","Verify that leading and trailing spaces in the email field are trimmed before validation","1. Navigate to the login page
+2. Enter a registered email with leading and trailing spaces
+3. Enter the correct password
+4. Click Login","edge","TS-01","TC-01.7",""
+"Test","Verify that the email field is case-insensitive","1. Navigate to the login page
+2. Enter the registered email in UPPERCASE
+3. Enter the correct password
+4. Click Login","edge","TS-01","TC-01.8",""
+"Test","Verify that the email field accepts the maximum allowed length and rejects one character more","1. Navigate to the login page
+2. Enter an email at the maximum allowed length
+3. Submit and observe the outcome
+4. Repeat with one character beyond the limit","boundary","TS-01","TC-01.9",""
+"Test","Verify that the Forgot Password link triggers the password reset flow","1. Navigate to the login page
+2. Click Forgot Password
+3. Enter a registered email
+4. Submit the request","positive","TS-01","TC-01.10",""
+"Test","Verify that password reset link sent to email is valid and expires after use","1. Request a password reset
+2. Open the reset link from the email
+3. Set a new password
+4. Re-open the same link","edge","TS-01","TC-01.11",""
+"Test","Verify that a user can log in successfully with a valid 2FA code","1. Log in with valid credentials
+2. Enter the valid OTP received on the registered device
+3. Submit the code","positive","TS-01","TC-01.12",""
+"Test","Verify that an invalid or expired 2FA code is rejected and a retry is offered","1. Log in with valid credentials
+2. Enter an incorrect or expired OTP
+3. Submit the code","negative","TS-01","TC-01.13",""
+"Test","Verify that the account is locked after the configured number of consecutive failed login attempts","1. Enter a valid email and an incorrect password repeatedly up to the configured limit
+2. Observe the lockout message
+3. Attempt login with the correct password","boundary","TS-01","TC-01.14",""
+"Test","Verify that the user session expires after the configured inactivity period","1. Log in successfully
+2. Remain inactive beyond the session timeout
+3. Attempt to navigate to a protected page","edge","TS-01","TC-01.15",""
+"Test","Verify that the user is logged out and cannot access protected pages using the browser Back button","1. Log in successfully
+2. Click Logout
+3. Press the browser Back button
+4. Attempt to access a protected URL directly","negative","TS-01","TC-01.16",""
+"Test","Verify that the login fields are protected against SQL injection and XSS payloads","1. Navigate to the login page
+2. Enter SQL injection payloads in the email and password fields
+3. Submit
+4. Repeat with script-tag XSS payloads","negative","TS-01","TC-01.17",""
+"Test","Verify that the password is not exposed in the URL, page source or browser console after login","1. Log in successfully
+2. Inspect the browser URL, page source and console logs
+3. Search for the plain-text password","edge","TS-01","TC-01.18",""
+"Test","Verify that a new A/B test is created successfully with a valid experiment name","1. Navigate to the Testing module
+2. Click Create New Test
+3. Enter a valid experiment name
+4. Click Save","positive","TS-02","TC-02.1",""
+"Test","Verify that an A/B test cannot be created with a blank experiment name","1. Navigate to the Testing module
+2. Click Create New Test
+3. Leave the experiment name blank
+4. Click Save","negative","TS-02","TC-02.2",""
+"Test","Verify that the experiment name accepts the maximum allowed length","1. Navigate to Create New Test
+2. Enter an experiment name exactly at the maximum allowed length
+3. Click Save","boundary","TS-02","TC-02.3",""
+"Test","Verify that an experiment name exceeding the maximum allowed length is rejected","1. Navigate to Create New Test
+2. Enter an experiment name one character beyond the maximum length
+3. Click Save","negative","TS-02","TC-02.4",""
+"Test","Verify the behaviour when an experiment name with only special characters is submitted","1. Navigate to Create New Test
+2. Enter a name containing only special characters (for example ####)
+3. Click Save","edge","TS-02","TC-02.5",""
+"Test","Verify that multiple variations can be added to a single experiment","1. Open the created experiment
+2. Click Add Variation
+3. Add two or more variations
+4. Save the experiment","positive","TS-02","TC-02.6",""
+"Test","Verify that a 50/50 traffic split between two variations is saved correctly","1. Open the experiment Traffic Allocation settings
+2. Set the split to 50/50
+3. Save","positive","TS-02","TC-02.7",""
+"Test","Verify that a 0/100 traffic split is accepted as a boundary value","1. Open Traffic Allocation settings
+2. Set the split to 0/100
+3. Save","boundary","TS-02","TC-02.8",""
+"Test","Verify that a traffic split that does not total 100 percent is rejected","1. Open Traffic Allocation settings
+2. Enter a split totaling less than or more than 100 percent
+3. Save","negative","TS-02","TC-02.9",""
+"Test","Verify that a custom goal and metric can be configured for an experiment","1. Open the experiment
+2. Navigate to Goals and Metrics
+3. Add a custom goal with a valid metric
+4. Save","positive","TS-02","TC-02.10",""
+"Test","Verify that an experiment can be launched and its status changes to Running","1. Open a fully configured experiment
+2. Click Launch
+3. Verify the experiment status","positive","TS-02","TC-02.11",""
+"Test","Verify that a running experiment can be paused","1. Open a Running experiment
+2. Click Pause
+3. Verify the experiment status","positive","TS-02","TC-02.12",""
+"Test","Verify that a paused experiment can be resumed","1. Open a Paused experiment
+2. Click Resume
+3. Verify the experiment status","positive","TS-02","TC-02.13",""
+"Test","Verify that an experiment can be concluded and a winner variation declared","1. Open a Running experiment with results
+2. Click Conclude
+3. Select the winning variation
+4. Confirm","positive","TS-02","TC-02.14",""
+"Test","Verify that an experiment can be scheduled to start on a future date and time","1. Open Create New Test
+2. Configure the experiment
+3. Set the start date to a future date and time
+4. Save","positive","TS-02","TC-02.15",""
+"Test","Verify that scheduling an experiment with a past date is rejected","1. Open Create New Test
+2. Set the start date to a past date
+3. Save","negative","TS-02","TC-02.16",""
+"Test","Verify that variation previews render correctly across desktop, tablet and mobile devices","1. Open the experiment
+2. Click Preview
+3. Switch between desktop, tablet and mobile views","positive","TS-02","TC-02.17",""
+"Test","Verify that a Split URL test is created successfully with valid control and variation URLs","1. Navigate to the Testing module
+2. Select Split URL test type
+3. Enter valid control and variation URLs
+4. Save","positive","TS-02","TC-02.18",""
+"Test","Verify that a Split URL test with an invalid or unreachable URL shows a validation error","1. Select Split URL test type
+2. Enter an invalid URL (for example httpx//invalid)
+3. Save","negative","TS-02","TC-02.19",""
+"Test","Verify that a Multivariate test is created with multiple element combinations","1. Navigate to the Testing module
+2. Select Multivariate test type
+3. Configure two or more elements with multiple variants
+4. Save","positive","TS-02","TC-02.20",""
+"Test","Verify that a running experiment cannot be edited in a way that invalidates live results","1. Open a Running experiment
+2. Attempt to edit variations and goals
+3. Observe the system response","edge","TS-02","TC-02.21",""
+"Test","Verify that two users editing the same experiment concurrently do not overwrite each other's changes silently","1. Open the same experiment in two sessions
+2. Edit different fields in each session
+3. Save in both sessions","edge","TS-02","TC-02.22",""
+"Test","Verify that an experiment can be archived and is removed from the active experiment list","1. Open an experiment
+2. Click Archive or Delete
+3. Confirm the action
+4. Verify the active list","positive","TS-02","TC-02.23",""
+"Test","Verify that an experiment with no variations cannot be launched","1. Create an experiment without adding any variation
+2. Attempt to launch it","negative","TS-02","TC-02.24",""
+"Test","Verify that SmartStats displays Bayesian results for a running experiment","1. Open a running experiment with traffic
+2. Navigate to the Results tab
+3. Verify the Bayesian metrics displayed","positive","TS-03","TC-03.1",""
+"Test","Verify that a winner is declared when statistical significance is reached","1. Open an experiment that has reached the significance threshold
+2. Verify the winning variation is declared","positive","TS-03","TC-03.2",""
+"Test","Verify that the not-enough-data state is shown when traffic is insufficient","1. Open a newly launched experiment with minimal traffic
+2. Navigate to the Results tab","boundary","TS-03","TC-03.3",""
+"Test","Verify that results update as new conversions arrive","1. Open the Results tab of a running experiment
+2. Note the conversion values
+3. Generate new conversions
+4. Refresh the results","positive","TS-03","TC-03.4",""
+"Test","Verify that the Results tab handles zero conversions without errors","1. Open an experiment with zero conversions
+2. Navigate to the Results tab","boundary","TS-03","TC-03.5",""
+"Test","Verify that a 100 percent conversion rate is computed correctly","1. Open an experiment where all visitors convert
+2. Navigate to the Results tab","boundary","TS-03","TC-03.6",""
+"Test","Verify that no false winner is declared when variations perform equally","1. Open an experiment with statistically equal variations
+2. Navigate to the Results tab","edge","TS-03","TC-03.7",""
+"Test","Verify SmartStats results against a known statistical sample dataset","1. Load a dataset with known expected Bayesian output
+2. Run the experiment and capture the results
+3. Compare the output with the expected values","positive","TS-03","TC-03.8",""
+"Test","Verify that an invalid goal or metric configuration shows an error and does not affect results","1. Open the experiment goals
+2. Configure an invalid metric
+3. Save and open the Results tab","negative","TS-03","TC-03.9",""
+"Test","Verify that results remain consistent after a goal is changed mid-test","1. Open a running experiment with results
+2. Change the primary goal
+3. Open the Results tab","edge","TS-03","TC-03.10",""
+"Test","Verify that the Visual Editor loads the target page correctly","1. Open an experiment
+2. Click Edit Variation
+3. Wait for the Visual Editor to load the page","positive","TS-04","TC-04.1",""
+"Test","Verify that text can be edited using the WYSIWYG editor","1. Open the Visual Editor
+2. Select a text element
+3. Edit the text
+4. Apply the change","positive","TS-04","TC-04.2",""
+"Test","Verify that an image element can be replaced with a new image","1. Open the Visual Editor
+2. Select an image element
+3. Upload or select a new image
+4. Apply the change","positive","TS-04","TC-04.3",""
+"Test","Verify that element styles (color, font size, alignment) can be modified","1. Open the Visual Editor
+2. Select an element
+3. Change color, font size and alignment
+4. Apply the change","positive","TS-04","TC-04.4",""
+"Test","Verify that an element can be moved, reordered and deleted","1. Open the Visual Editor
+2. Drag an element to a new position
+3. Reorder elements
+4. Delete an element
+5. Apply the changes","positive","TS-04","TC-04.5",""
+"Test","Verify that applied changes are reflected in the variation preview","1. Open the Visual Editor
+2. Apply a change
+3. Click Preview and verify the change","positive","TS-04","TC-04.6",""
+"Test","Verify that valid custom JavaScript or CSS entered in the Code Editor is applied","1. Open the Code Editor
+2. Enter valid JavaScript or CSS
+3. Save and preview the page","positive","TS-04","TC-04.7",""
+"Test","Verify that invalid code syntax in the Code Editor shows an error and is not saved","1. Open the Code Editor
+2. Enter code with invalid syntax
+3. Attempt to save","negative","TS-04","TC-04.8",""
+"Test","Verify that unsupported or restricted tags in the Code Editor are blocked","1. Open the Code Editor
+2. Enter a restricted tag or script
+3. Attempt to save","negative","TS-04","TC-04.9",""
+"Test","Verify that Undo and Redo work correctly in the Visual Editor","1. Open the Visual Editor
+2. Apply a change
+3. Click Undo
+4. Click Redo","positive","TS-04","TC-04.10",""
+"Test","Verify that editor changes persist after saving and reloading the page","1. Open the Visual Editor
+2. Apply and save a change
+3. Reload the editor and the preview page","positive","TS-04","TC-04.11",""
+"Test","Verify that elements inside an iframe or protected region cannot be edited","1. Open the Visual Editor on a page containing an iframe
+2. Attempt to select and edit the iframe content","edge","TS-04","TC-04.12",""
+"Test","Verify that a click heatmap is generated for a selected date range","1. Navigate to the Insights module
+2. Select Heatmap and the click type
+3. Choose a valid date range
+4. Generate the heatmap","positive","TS-05","TC-05.1",""
+"Test","Verify that a scroll heatmap is generated correctly","1. Navigate to the Insights module
+2. Select the scroll heatmap type
+3. Choose a valid date range
+4. Generate the heatmap","positive","TS-05","TC-05.2",""
+"Test","Verify that a focus or attention heatmap is generated correctly","1. Navigate to the Insights module
+2. Select the focus heatmap type
+3. Choose a valid date range
+4. Generate the heatmap","positive","TS-05","TC-05.3",""
+"Test","Verify that an appropriate empty state is shown when no heatmap data exists","1. Navigate to the Insights module
+2. Select a page or date range with no data
+3. Generate the heatmap","boundary","TS-05","TC-05.4",""
+"Test","Verify that a session is recorded and can be played back","1. Navigate to the Insights module
+2. Open Session Recordings
+3. Select a recorded session and play it","positive","TS-05","TC-05.5",""
+"Test","Verify that personally identifiable information is masked in session recordings","1. Open a session recording containing form inputs
+2. Verify that PII fields are masked or anonymized","positive","TS-05","TC-05.6",""
+"Test","Verify that an on-page survey can be created and a response captured","1. Create a survey with valid questions
+2. Publish it on a test page
+3. Submit a response
+4. Verify the response in the Insights dashboard","positive","TS-05","TC-05.7",""
+"Test","Verify that a survey with required questions cannot be submitted empty","1. Open the published survey
+2. Leave required questions unanswered
+3. Submit","negative","TS-05","TC-05.8",""
+"Test","Verify that funnel analytics show drop-off correctly for valid steps","1. Navigate to Funnel Analytics
+2. Add two or more valid funnel steps
+3. Generate the funnel report","positive","TS-05","TC-05.9",""
+"Test","Verify that a funnel with a single step shows a validation error","1. Navigate to Funnel Analytics
+2. Add only one step
+3. Generate the funnel report","negative","TS-05","TC-05.10",""
+"Test","Verify that insights can be filtered by device, browser and date range","1. Open the Insights dashboard
+2. Apply device, browser and date range filters
+3. Verify the filtered results","positive","TS-05","TC-05.11",""
+"Test","Verify that an insights report can be exported","1. Open the Insights dashboard
+2. Click Export
+3. Select the export format
+4. Verify the downloaded file","positive","TS-05","TC-05.12",""
+"Test","Verify that an audience segment can be created using a behavior rule","1. Navigate to Audience Targeting
+2. Create a new segment
+3. Add a behavior-based rule
+4. Save the segment","positive","TS-06","TC-06.1",""
+"Test","Verify that an audience segment can be created using an attribute rule","1. Navigate to Audience Targeting
+2. Create a new segment
+3. Add an attribute-based rule
+4. Save the segment","positive","TS-06","TC-06.2",""
+"Test","Verify that an audience segment can be created using a geography rule","1. Navigate to Audience Targeting
+2. Create a new segment
+3. Add a geography-based rule
+4. Save the segment","positive","TS-06","TC-06.3",""
+"Test","Verify that a segment combining behavior, attribute and geography rules evaluates correctly","1. Create a segment with three rule types
+2. Define the AND/OR relationship
+3. Save and preview the matching audience","positive","TS-06","TC-06.4",""
+"Test","Verify that a segment with no rule cannot be saved","1. Navigate to Audience Targeting
+2. Create a new segment
+3. Leave all rules empty
+4. Click Save","negative","TS-06","TC-06.5",""
+"Test","Verify that nested AND/OR rule logic is evaluated correctly","1. Create a segment with nested AND/OR conditions
+2. Save the segment
+3. Preview the matching audience count","edge","TS-06","TC-06.6",""
+"Test","Verify that the matching audience count preview is accurate","1. Create a segment with known matching criteria
+2. Click Preview Audience
+3. Compare the count with the expected value","positive","TS-06","TC-06.7",""
+"Test","Verify that a segment can be edited and deleted","1. Open an existing segment
+2. Edit a rule and save
+3. Delete the segment","positive","TS-06","TC-06.8",""
+"Test","Verify the behaviour of a test attached to a segment that matches no visitors","1. Attach an experiment to a segment matching zero visitors
+2. Launch the experiment
+3. Observe traffic allocation","edge","TS-06","TC-06.9",""
+"Test","Verify that the dashboard loads and displays current experiment metrics","1. Log in to VWO
+2. Open the Dashboard
+3. Verify the experiment metrics displayed","positive","TS-07","TC-07.1",""
+"Test","Verify that dashboard metrics refresh within the expected interval","1. Open the Dashboard
+2. Note the metric values
+3. Generate new traffic and conversions
+4. Wait for the refresh interval and verify the update","positive","TS-07","TC-07.2",""
+"Test","Verify that the date range filter updates the reported metrics","1. Open the Dashboard or Reports
+2. Apply a valid date range filter
+3. Verify the metrics reflect the selected range","positive","TS-07","TC-07.3",""
+"Test","Verify that device and browser filters update the reported metrics","1. Open the Reports view
+2. Apply device and browser filters
+3. Verify the metrics reflect the filters","positive","TS-07","TC-07.4",""
+"Test","Verify that an invalid date range (start date after end date) shows a validation error","1. Open the date range filter
+2. Set the start date after the end date
+3. Apply the filter","negative","TS-07","TC-07.5",""
+"Test","Verify that a report can be exported in the supported formats","1. Open a report
+2. Click Export
+3. Select CSV and then PDF
+4. Verify the downloaded files","positive","TS-07","TC-07.6",""
+"Test","Verify that the dashboard shows an appropriate empty state when no experiments exist","1. Log in with a new account having no experiments
+2. Open the Dashboard","boundary","TS-07","TC-07.7",""
+"Test","Verify that the dashboard loads within the expected time with a large data volume","1. Open an account with a large number of experiments and conversions
+2. Measure the dashboard load time","boundary","TS-07","TC-07.8",""
+"Test","Verify that a personalization campaign is created successfully with a valid name","1. Navigate to the Personalization module
+2. Click Create Campaign
+3. Enter a valid campaign name
+4. Save","positive","TS-08","TC-08.1",""
+"Test","Verify that a personalization campaign cannot be created with a blank name","1. Navigate to the Personalization module
+2. Click Create Campaign
+3. Leave the name blank
+4. Save","negative","TS-08","TC-08.2",""
+"Test","Verify that customized content is delivered in real time to a matching segment","1. Create a campaign targeting a specific segment
+2. Launch the campaign
+3. Visit the page as a matching visitor
+4. Verify the personalized content","positive","TS-08","TC-08.3",""
+"Test","Verify that a non-matching visitor receives the default content","1. Launch a segment-targeted campaign
+2. Visit the page as a non-matching visitor
+3. Verify the default content is shown","negative","TS-08","TC-08.4",""
+"Test","Verify that a geography-based personalization campaign targets visitors correctly","1. Create a campaign with a geography-based segment
+2. Launch it
+3. Visit from a matching geography
+4. Verify the personalized content","positive","TS-08","TC-08.5",""
+"Test","Verify that a campaign with no segment cannot be published","1. Create a campaign without attaching a segment
+2. Attempt to publish","negative","TS-08","TC-08.6",""
+"Test","Verify that a personalization campaign can be paused and resumed","1. Open a running campaign
+2. Click Pause and verify the status
+3. Click Resume and verify the status","positive","TS-08","TC-08.7",""
+"Test","Verify that engagement metrics are tracked for a personalized campaign","1. Launch a campaign and generate visitor interactions
+2. Open the campaign report
+3. Verify the engagement metrics","positive","TS-08","TC-08.8",""
+"Test","Verify the behaviour when a visitor matches two conflicting personalization campaigns","1. Create two campaigns with overlapping segments
+2. Launch both
+3. Visit the page as a visitor matching both","edge","TS-08","TC-08.9",""
+"Test","Verify that the Shopify integration connects and syncs data with valid credentials","1. Navigate to Integrations
+2. Select Shopify
+3. Enter valid credentials and authorize
+4. Verify data sync","positive","TS-09","TC-09.1",""
+"Test","Verify that the Salesforce integration connects and syncs data with valid credentials","1. Navigate to Integrations
+2. Select Salesforce
+3. Enter valid credentials and authorize
+4. Verify data sync","positive","TS-09","TC-09.2",""
+"Test","Verify that the Segment integration connects and forwards events correctly","1. Navigate to Integrations
+2. Select Segment
+3. Enter the valid write key
+4. Verify event delivery","positive","TS-09","TC-09.3",""
+"Test","Verify that the Snowflake integration connects and syncs data with valid credentials","1. Navigate to Integrations
+2. Select Snowflake
+3. Enter valid connection details
+4. Verify data sync","positive","TS-09","TC-09.4",""
+"Test","Verify that the WordPress plugin installs, activates and syncs correctly","1. Install the VWO WordPress plugin
+2. Activate it and enter the account ID
+3. Verify the connection and data sync","positive","TS-09","TC-09.5",""
+"Test","Verify that the Drupal module installs, activates and syncs correctly","1. Install the VWO Drupal module
+2. Activate it and enter the account ID
+3. Verify the connection and data sync","positive","TS-09","TC-09.6",""
+"Test","Verify that the Google Analytics integration connects and reports experiment data","1. Navigate to Integrations
+2. Select Google Analytics
+3. Authorize the account
+4. Verify experiment data in GA","positive","TS-09","TC-09.7",""
+"Test","Verify that the Mixpanel integration connects and reports experiment data","1. Navigate to Integrations
+2. Select Mixpanel
+3. Enter valid credentials
+4. Verify experiment data in Mixpanel","positive","TS-09","TC-09.8",""
+"Test","Verify that an integration with invalid credentials shows a clear error and is not saved","1. Navigate to Integrations
+2. Select any connector
+3. Enter invalid credentials
+4. Attempt to save","negative","TS-09","TC-09.9",""
+"Test","Verify that synced data in an external platform matches the data in VWO","1. Generate a known set of visitors and conversions in VWO
+2. Wait for the sync cycle
+3. Compare the values in the external platform with VWO","positive","TS-09","TC-09.10",""
+"Test","Verify that an integration can be disconnected without affecting existing data","1. Open a connected integration
+2. Click Disconnect
+3. Verify the connection status and existing data","positive","TS-09","TC-09.11",""
+"Test","Verify that connector API rate limits are handled gracefully","1. Configure an integration and exceed the API call limit
+2. Observe the error handling and retry behaviour","edge","TS-09","TC-09.12",""
+"Test","Verify that a new Kanban card can be created in the backlog","1. Navigate to Program and Workflow Management
+2. Click Create Card
+3. Enter a valid title and details
+4. Save","positive","TS-10","TC-10.1",""
+"Test","Verify that a card cannot be created with a blank title","1. Navigate to the Kanban board
+2. Click Create Card
+3. Leave the title blank
+4. Save","negative","TS-10","TC-10.2",""
+"Test","Verify that a card can be moved between workflow states","1. Open the Kanban board
+2. Drag a card from one state column to another
+3. Verify the new state is persisted after reload","positive","TS-10","TC-10.3",""
+"Test","Verify that a card can be assigned to a team member","1. Open a card
+2. Select an assignee
+3. Save and verify the assignment","positive","TS-10","TC-10.4",""
+"Test","Verify that comments and attachments can be added to a card","1. Open a card
+2. Add a comment
+3. Attach a file
+4. Save and verify","positive","TS-10","TC-10.5",""
+"Test","Verify that two users moving the same card concurrently do not corrupt the card state","1. Open the same board in two sessions
+2. Move the same card to different states in each session
+3. Verify the final card state","edge","TS-10","TC-10.6",""
+"Test","Verify that the backlog can be searched and filtered","1. Open the Kanban board
+2. Apply a search term and status filter
+3. Verify the filtered cards","positive","TS-10","TC-10.7",""
+"Test","Verify that a Viewer role cannot create or edit cards","1. Log in with a Viewer role account
+2. Attempt to create and edit a card
+3. Observe the system response","negative","TS-10","TC-10.8",""
+"Test","Verify that editing workflows respond within the 2-second performance SLA","1. Open the Visual Editor and experiment settings
+2. Measure the response time for edit, apply and save actions
+3. Compare against the 2-second SLA","boundary","TS-11","TC-11.1",""
+"Test","Verify that the dashboard load time remains within the SLA under normal load","1. Load the dashboard with a standard dataset
+2. Measure the page load time","boundary","TS-11","TC-11.2",""
+"Test","Verify that the Visual Editor remains usable on a throttled 3G network","1. Switch the network profile to throttled 3G
+2. Open and use the Visual Editor
+3. Observe responsiveness and failures","edge","TS-11","TC-11.3",""
+"Test","Verify that 2FA is enforced for all user accounts","1. Log in with 2FA disabled or unconfigured
+2. Observe the enforcement prompt","positive","TS-11","TC-11.4",""
+"Test","Verify Role-Based Access Control for Admin, Editor and Viewer roles","1. Log in with each role
+2. Attempt permitted and restricted actions
+3. Verify access matches the role matrix","positive","TS-11","TC-11.5",""
+"Test","Verify that a Viewer cannot modify or delete experiments","1. Log in with a Viewer role account
+2. Attempt to edit and delete an experiment","negative","TS-11","TC-11.6",""
+"Test","Verify that the activity log records all user actions","1. Perform create, edit and delete actions
+2. Open the Activity Log
+3. Verify each action is recorded with user, timestamp and action detail","positive","TS-11","TC-11.7",""
+"Test","Verify that XSS payloads in form fields are sanitized and not executed","1. Enter script-tag XSS payloads in experiment and segment form fields
+2. Save and reload the page
+3. Verify the script is not executed","negative","TS-11","TC-11.8",""
+"Test","Verify that SQL injection payloads in API parameters are blocked","1. Send API requests with SQL injection payloads in path and query parameters
+2. Verify no database error is exposed and the request is rejected","negative","TS-11","TC-11.9",""
+"Test","Verify that the session expires after the configured inactivity period on all modules","1. Log in and remain inactive beyond the timeout
+2. Attempt an action in each module","edge","TS-11","TC-11.10",""
+"Test","Verify that the platform supports high concurrent visitor volume without performance loss","1. Simulate peak concurrent visitor traffic on a tested page
+2. Monitor response times and error rates
+3. Verify the experiment serves variations correctly","boundary","TS-11","TC-11.11",""
+"Test","Verify GDPR cookie consent enforcement for EU visitors","1. Visit a tested page from an EU IP address
+2. Verify the consent banner and that tracking occurs only after consent","positive","TS-11","TC-11.12",""
+"Test","Verify that CCPA opt-out requests are respected","1. Simulate a visitor with the CCPA opt-out signal
+2. Verify no tracking or experimentation occurs","positive","TS-11","TC-11.13",""
+"Test","Verify that PII is anonymized in all captured behavioral data","1. Generate sessions containing form inputs
+2. Inspect heatmaps and recordings
+3. Verify all PII is masked","positive","TS-11","TC-11.14",""
+"Test","Verify that platform uptime meets the 99.9 percent SLA","1. Monitor platform availability over the defined measurement window
+2. Record downtime events
+3. Compare against the 99.9 percent SLA","boundary","TS-11","TC-11.15",""
+"Test","Verify that the application degrades gracefully when a dependent service fails","1. Simulate a failure of a dependent service (for example the stats engine or a connector)
+2. Perform affected user actions
+3. Verify a clear message and no data loss","edge","TS-11","TC-11.16",""
+"Test","Verify consistent rendering across Chrome, Firefox, Edge and Safari","1. Open the Testing, Insights and Personalization modules in each browser
+2. Compare layout, functionality and console errors","positive","TS-11","TC-11.17",""
+"Test","Verify responsive layout across desktop, tablet and mobile devices","1. Open the dashboard and key modules on desktop, tablet and mobile
+2. Verify layout, navigation and readability","positive","TS-11","TC-11.18",""
